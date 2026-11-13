@@ -1,0 +1,480 @@
+/* ==========================================================================
+   Creative Tim & UPDIVISION: Vue White Dashboard Laravel Theme
+   Custom Integrated for nnaco_sa Admin & Management Panel
+   ========================================================================== */
+
+/* 1. White Dashboard Design Tokens */
+:root, [data-theme="light"], [data-bs-theme="light"], body.white-content {
+    --wd-bg: #f5f6fa;
+    --wd-surface: #ffffff;
+    --wd-card: #ffffff;
+    --wd-card-hover: #ffffff;
+    --wd-sidebar: #ffffff;
+    --wd-sidebar-border: rgba(0, 0, 0, 0.07);
+    --wd-text-main: #1d253b;
+    --wd-text-muted: #8898aa;
+    --wd-text-subtle: #adb5bd;
+    --wd-border: #e3e8ee;
+    --wd-border-subtle: #f0f2f5;
+
+    /* Signature Gradients */
+    --wd-primary-grad: linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
+    --wd-primary-hover: linear-gradient(0deg, #a83de6 0%, #d83bbd 100%);
+    --wd-primary-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(225, 78, 202, 0.45);
+
+    --wd-blue-grad: linear-gradient(0deg, #3358f4 0%, #1d8cf8 100%);
+    --wd-blue-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(29, 140, 248, 0.45);
+
+    --wd-success-grad: linear-gradient(0deg, #00bf9a 0%, #00f2c3 100%);
+    --wd-success-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 191, 154, 0.45);
+
+    --wd-warning-grad: linear-gradient(0deg, #ff6491 0%, #ff8d72 100%);
+    --wd-warning-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 141, 114, 0.45);
+
+    --wd-danger-grad: linear-gradient(0deg, #ec250d 0%, #fd5d93 100%);
+    --wd-danger-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(253, 93, 147, 0.45);
+
+    --wd-card-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.06);
+    --wd-input-bg: #ffffff;
+    --wd-input-border: #cad1d7;
+    --wd-input-text: #1d253b;
+    --wd-table-header-bg: #f8f9fe;
+
+    /* Override Bootstrap Variables in Admin Layout */
+    --bs-body-bg: #f5f6fa;
+    --bs-body-color: #1d253b;
+    --bs-card-bg: #ffffff;
+    --bs-card-color: #1d253b;
+    --bs-border-color: #e3e8ee;
+}
+
+[data-theme="dark"], [data-bs-theme="dark"], body:not(.white-content).theme-dark {
+    --wd-bg: #1e1e2f;
+    --wd-surface: #27293d;
+    --wd-card: #27293d;
+    --wd-card-hover: #2e3148;
+    --wd-sidebar: #1e1e24;
+    --wd-sidebar-border: rgba(255, 255, 255, 0.06);
+    --wd-text-main: rgba(255, 255, 255, 0.9);
+    --wd-text-muted: rgba(255, 255, 255, 0.6);
+    --wd-text-subtle: rgba(255, 255, 255, 0.4);
+    --wd-border: rgba(255, 255, 255, 0.08);
+    --wd-border-subtle: rgba(255, 255, 255, 0.04);
+
+    /* Signature Gradients in Dark */
+    --wd-primary-grad: linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
+    --wd-primary-hover: linear-gradient(0deg, #c766ff 0%, #ec5dd6 100%);
+    --wd-primary-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.3), 0 7px 10px -5px rgba(225, 78, 202, 0.55);
+
+    --wd-blue-grad: linear-gradient(0deg, #3358f4 0%, #1d8cf8 100%);
+    --wd-blue-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.3), 0 7px 10px -5px rgba(29, 140, 248, 0.55);
+
+    --wd-success-grad: linear-gradient(0deg, #00bf9a 0%, #00f2c3 100%);
+    --wd-success-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.3), 0 7px 10px -5px rgba(0, 191, 154, 0.55);
+
+    --wd-warning-grad: linear-gradient(0deg, #ff6491 0%, #ff8d72 100%);
+    --wd-warning-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.3), 0 7px 10px -5px rgba(255, 141, 114, 0.55);
+
+    --wd-danger-grad: linear-gradient(0deg, #ec250d 0%, #fd5d93 100%);
+    --wd-danger-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.3), 0 7px 10px -5px rgba(253, 93, 147, 0.55);
+
+    --wd-card-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.2);
+    --wd-input-bg: #1e1e2f;
+    --wd-input-border: #2b3553;
+    --wd-input-text: #ffffff;
+    --wd-table-header-bg: rgba(255, 255, 255, 0.03);
+
+    /* Override Bootstrap Variables in Admin Layout */
+    --bs-body-bg: #1e1e2f;
+    --bs-body-color: rgba(255, 255, 255, 0.9);
+    --bs-card-bg: #27293d;
+    --bs-card-color: rgba(255, 255, 255, 0.9);
+    --bs-border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 2. Global Canvas & Body for White Dashboard */
+body.white-dashboard-layout {
+    background-color: var(--wd-bg) !important;
+    color: var(--wd-text-main) !important;
+    font-family: 'Poppins', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+    letter-spacing: 0.2px;
+}
+
+/* 3. White Dashboard Header & Navbar */
+body.white-dashboard-layout .navbar-custom {
+    background: var(--wd-surface) !important;
+    border-bottom: 1px solid var(--wd-border) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+}
+
+body.white-dashboard-layout .navbar-brand-custom {
+    font-weight: 800 !important;
+    letter-spacing: 0.5px;
+    background: var(--wd-primary-grad) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* 4. White Dashboard Signature Sidebar */
+body.white-dashboard-layout .sidebar {
+    background: var(--wd-sidebar) !important;
+    border-right: 1px solid var(--wd-sidebar-border) !important;
+    box-shadow: none !important;
+    transition: all 0.3s ease;
+}
+
+body.white-dashboard-layout .sidebar-sticky {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+/* Nav Item Links in Sidebar */
+body.white-dashboard-layout .sidebar .nav-link {
+    color: var(--wd-text-muted) !important;
+    font-size: 0.8125rem !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.6px !important;
+    border-radius: 0.4285rem !important;
+    margin: 0.2rem 0.25rem !important;
+    padding: 0.65rem 0.9rem !important;
+    transition: all 0.25s cubic-bezier(0.2, 0, 0, 1) !important;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+body.white-dashboard-layout .sidebar .nav-link:hover {
+    color: #e14eca !important;
+    background: rgba(225, 78, 202, 0.08) !important;
+    transform: translateX(4px);
+}
+
+/* Active Link: The Iconic White Dashboard Gradient Pill */
+body.white-dashboard-layout .sidebar .nav-link.active {
+    background: var(--wd-primary-grad) !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    box-shadow: var(--wd-primary-shadow) !important;
+    transform: none !important;
+}
+
+body.white-dashboard-layout .sidebar .nav-link.active .sidebar-icon-pod,
+body.white-dashboard-layout .sidebar .nav-link.active i {
+    color: #ffffff !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+body.white-dashboard-layout .sidebar-icon-pod {
+    width: 32px;
+    height: 32px;
+    border-radius: 0.4285rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+/* 5. White Dashboard Cards */
+body.white-dashboard-layout .card {
+    background-color: var(--wd-card) !important;
+    color: var(--wd-text-main) !important;
+    border: none !important;
+    border-radius: 0.4285rem !important;
+    box-shadow: var(--wd-card-shadow) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+body.white-dashboard-layout .card-header {
+    background: transparent !important;
+    border-bottom: 1px solid var(--wd-border) !important;
+    padding: 1.1rem 1.4rem !important;
+}
+
+body.white-dashboard-layout .card-header h5 {
+    color: var(--wd-text-main) !important;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+/* Category & Uppercase Label */
+.card-category {
+    color: var(--wd-text-muted);
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    margin-bottom: 0.35rem;
+}
+
+/* 6. White Dashboard Signature Buttons */
+body.white-dashboard-layout .btn-primary {
+    background-image: var(--wd-primary-grad) !important;
+    background-size: 210% 210%;
+    background-position: 100% 0;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: var(--wd-primary-shadow) !important;
+    border-radius: 0.4285rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+body.white-dashboard-layout .btn-primary:hover {
+    background-position: 0 0;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px 0px rgba(225, 78, 202, 0.6) !important;
+}
+
+body.white-dashboard-layout .btn-info {
+    background-image: var(--wd-blue-grad) !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: var(--wd-blue-shadow) !important;
+    border-radius: 0.4285rem;
+}
+
+body.white-dashboard-layout .btn-success {
+    background-image: var(--wd-success-grad) !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: var(--wd-success-shadow) !important;
+    border-radius: 0.4285rem;
+}
+
+body.white-dashboard-layout .btn-warning {
+    background-image: var(--wd-warning-grad) !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: var(--wd-warning-shadow) !important;
+    border-radius: 0.4285rem;
+}
+
+body.white-dashboard-layout .btn-danger {
+    background-image: var(--wd-danger-grad) !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: var(--wd-danger-shadow) !important;
+    border-radius: 0.4285rem;
+}
+
+/* 7. Forms & Inputs */
+body.white-dashboard-layout .form-control,
+body.white-dashboard-layout .form-select {
+    background-color: var(--wd-input-bg) !important;
+    border: 1px solid var(--wd-input-border) !important;
+    color: var(--wd-input-text) !important;
+    border-radius: 0.4285rem !important;
+    font-size: 0.875rem;
+    padding: 0.65rem 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.white-dashboard-layout .form-control:focus,
+body.white-dashboard-layout .form-select:focus {
+    border-color: #ba54f5 !important;
+    box-shadow: 0 0 0 0.2rem rgba(186, 84, 245, 0.22) !important;
+}
+
+body.white-dashboard-layout .input-group-text {
+    background-color: var(--wd-input-bg) !important;
+    border: 1px solid var(--wd-input-border) !important;
+    color: var(--wd-text-muted) !important;
+}
+
+/* 8. Tables in White Dashboard */
+body.white-dashboard-layout .table {
+    color: var(--wd-text-main) !important;
+    margin-bottom: 0;
+}
+
+body.white-dashboard-layout .table thead th {
+    background-color: var(--wd-table-header-bg) !important;
+    color: var(--wd-text-muted) !important;
+    border-bottom: 1px solid var(--wd-border) !important;
+    text-transform: uppercase !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.7px !important;
+    padding: 0.95rem 1rem !important;
+}
+
+body.white-dashboard-layout .table tbody td {
+    background-color: transparent !important;
+    color: var(--wd-text-main) !important;
+    border-bottom: 1px solid var(--wd-border) !important;
+    padding: 0.95rem 1rem !important;
+    vertical-align: middle;
+}
+
+body.white-dashboard-layout .table-hover tbody tr:hover {
+    background-color: rgba(186, 84, 245, 0.04) !important;
+}
+
+/* 9. Breadcrumbs & Badges */
+body.white-dashboard-layout .breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+body.white-dashboard-layout .breadcrumb-item a {
+    color: #ba54f5;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+body.white-dashboard-layout .breadcrumb-item a:hover {
+    color: #e14eca;
+    text-decoration: underline;
+}
+
+body.white-dashboard-layout .breadcrumb-item.active {
+    color: var(--wd-text-muted);
+}
+
+body.white-dashboard-layout .badge {
+    border-radius: 30px;
+    font-weight: 600;
+    padding: 0.4em 0.85em;
+    font-size: 0.74rem;
+    letter-spacing: 0.3px;
+}
+
+/* 10. Dashboard Stat Cards in White Dashboard */
+.card-stat-gradient-pink {
+    background: var(--wd-primary-grad) !important;
+    color: #ffffff !important;
+    box-shadow: var(--wd-primary-shadow) !important;
+}
+
+.card-stat-gradient-blue {
+    background: var(--wd-blue-grad) !important;
+    color: #ffffff !important;
+    box-shadow: var(--wd-blue-shadow) !important;
+}
+
+.card-stat-gradient-green {
+    background: var(--wd-success-grad) !important;
+    color: #ffffff !important;
+    box-shadow: var(--wd-success-shadow) !important;
+}
+
+.card-stat-gradient-orange {
+    background: var(--wd-warning-grad) !important;
+    color: #ffffff !important;
+    box-shadow: var(--wd-warning-shadow) !important;
+}
+
+/* Chart Canvas container */
+.chart-area {
+    position: relative;
+    height: 320px;
+    width: 100%;
+}
+
+/* 11. Modal & Dialog in White Dashboard */
+body.white-dashboard-layout .modal-content {
+    background-color: var(--wd-surface) !important;
+    color: var(--wd-text-main) !important;
+    border: 1px solid var(--wd-border) !important;
+    border-radius: 0.4285rem !important;
+    box-shadow: 0 10px 50px 0px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.white-dashboard-layout .modal-header,
+body.white-dashboard-layout .modal-footer {
+    border-color: var(--wd-border) !important;
+    background-color: transparent !important;
+}
+
+body.white-dashboard-layout .modal-title {
+    color: var(--wd-text-main) !important;
+    font-weight: 700 !important;
+}
+
+/* 12. Dropdowns & Menus in White Dashboard */
+body.white-dashboard-layout .dropdown-menu {
+    background-color: var(--wd-surface) !important;
+    color: var(--wd-text-main) !important;
+    border: 1px solid var(--wd-border) !important;
+    border-radius: 0.4285rem !important;
+    box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.2) !important;
+    padding: 0.5rem 0 !important;
+}
+
+body.white-dashboard-layout .dropdown-item {
+    color: var(--wd-text-main) !important;
+    font-size: 0.8125rem !important;
+    padding: 0.6rem 1.25rem !important;
+    transition: all 0.2s ease;
+}
+
+body.white-dashboard-layout .dropdown-item:hover,
+body.white-dashboard-layout .dropdown-item:focus {
+    background-color: rgba(186, 84, 245, 0.12) !important;
+    color: #e14eca !important;
+    padding-left: 1.5rem !important;
+}
+
+body.white-dashboard-layout .dropdown-divider {
+    border-color: var(--wd-border) !important;
+    opacity: 0.6;
+}
+
+/* 13. List Groups */
+body.white-dashboard-layout .list-group-item {
+    background-color: transparent !important;
+    color: var(--wd-text-main) !important;
+    border-color: var(--wd-border) !important;
+}
+
+/* 14. Theme Harmony Overrides (Prevent Jarring White Patches in Dark Mode) */
+body.white-dashboard-layout[data-theme="dark"] .bg-white,
+[data-theme="dark"] body.white-dashboard-layout .bg-white,
+body.white-dashboard-layout[data-bs-theme="dark"] .bg-white {
+    background-color: var(--wd-surface) !important;
+    color: var(--wd-text-main) !important;
+}
+
+body.white-dashboard-layout[data-theme="dark"] .bg-light,
+[data-theme="dark"] body.white-dashboard-layout .bg-light,
+body.white-dashboard-layout[data-bs-theme="dark"] .bg-light {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    color: var(--wd-text-main) !important;
+}
+
+body.white-dashboard-layout[data-theme="dark"] .text-dark,
+[data-theme="dark"] body.white-dashboard-layout .text-dark {
+    color: var(--wd-text-main) !important;
+}
+
+body.white-dashboard-layout[data-theme="dark"] .text-muted,
+[data-theme="dark"] body.white-dashboard-layout .text-muted {
+    color: var(--wd-text-muted) !important;
+}
+
+body.white-dashboard-layout[data-theme="dark"] .border,
+[data-theme="dark"] body.white-dashboard-layout .border,
+body.white-dashboard-layout[data-theme="dark"] .border-bottom,
+[data-theme="dark"] body.white-dashboard-layout .border-bottom,
+body.white-dashboard-layout[data-theme="dark"] .border-top,
+[data-theme="dark"] body.white-dashboard-layout .border-top {
+    border-color: var(--wd-border) !important;
+}
+
+/* 15. Subtle Card Hover & Transitions */
+body.white-dashboard-layout .card-hover-lift {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+body.white-dashboard-layout .card-hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px 0px rgba(0, 0, 0, 0.12) !important;
+}
+

@@ -1,0 +1,11 @@
+.env
+.env.local
+.env.*.local
+*.log
+.vscode/
+.idea/
+nbproject/
+thumbs.db
+.DS_Store
+scratch/
+test*.jpg
